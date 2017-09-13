@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.*;
 
 /**
  * A fix-sized array of students
@@ -12,9 +13,9 @@ import java.util.Date;
  *
  */
 public class StudentGroup implements StudentArrayOperation {
-
+ 
 	private Student[] students;
-	
+ArrayList<Student> a = new ArrayList<Student>(Arrays.asList(students));	
 	/**
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
@@ -25,23 +26,66 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getStudents() {
+		return students;
 		// Add your implementation here
-		return null;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
+		try{
+			if(students==null)
+			{
+				throw new IllegalArgumentException();
+			}
+			else
+			{
+				this.students=students;
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.print(e);
+		}
 		// Add your implementation here
 	}
 
 	@Override
 	public Student getStudent(int index) {
+				try{
+				if(index<0||index>=students.length)
+					{
+					throw  new IllegalArgumentException();
+					}
+				}
+				catch(Exception e)
+				{
+					System.out.println(e);
+				}
 		// Add your implementation here
-		return null;
+		return a.get(index);
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
+		 ArrayList<Student> a = new ArrayList<Student>(Arrays.asList(students));
+		try{
+			
+			if (index<0||index>=a.size()){
+				throw new IllegalArgumentException();
+				
+			}
+			else if (students==null){
+				throw new IllegalArgumentException();
+				
+			}
+			else{
+				a.set(index,student);
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 		// Add your implementation here
 	}
 
